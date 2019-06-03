@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_page">
+  <sys_ui_page action="INSERT_OR_UPDATE">
+    <category>general</category>
+    <client_script/>
+    <description>jsonform</description>
+    <direct>false</direct>
+    <endpoint>sn_lamancha_app_ui2019.do</endpoint>
+    <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+
+	<g2:doctype name="html" />
+	<j2:set var="jvar_lang" value="$[gs.getSession().getLanguage()]" />
+	<html lang="$[jvar_lang]">
+		<head>
+			<title>app_ui2019</title>
+ 			<meta charset="utf-8"/>
+  			<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+  			<link rel="stylesheet" id="theme" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/codemirror.min.js"></script>
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/codemirror.min.css" />
+
+
+		</head>
+		<body>
+			<div id="app_ui2019"/>
+
+			<p style="text-align:center">
+    			Powered by <a href="https://github.com/mozilla-services/react-jsonschema-form">react-jsonschema-form</a>.
+    			Bootstrap themes courtsesy of <a href="http://bootswatch.com/">Bootswatch</a> and <a href="https://github.com/aalpern/bootstrap-solarized/">bootstrap-solarized</a>.
+  			</p>
+
+			<!-- bundled Scripts -->
+			<script src="https://cdn.jsdelivr.net/gh/mayfourth/servicenow/lamancha/ui2019-bundle.min.js"/>
+
+		</body>
+	</html>
+
+</j:jelly>]]></html>
+    <name>app_ui2019</name>
+    <processing_script/>
+    <sys_class_name>sys_ui_page</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2019-06-02 18:53:14</sys_created_on>
+    <sys_id>3b7a222173753300f662cff8faf6a704</sys_id>
+    <sys_mod_count>19</sys_mod_count>
+    <sys_name>app_ui2019</sys_name>
+    <sys_package display_value="lamancha" source="sn_lamancha">59a92aed73353300f662cff8faf6a70e</sys_package>
+    <sys_policy/>
+    <sys_scope display_value="lamancha">59a92aed73353300f662cff8faf6a70e</sys_scope>
+    <sys_update_name>sys_ui_page_3b7a222173753300f662cff8faf6a704</sys_update_name>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2019-06-02 23:47:55</sys_updated_on>
+  </sys_ui_page>
+</record_update>
