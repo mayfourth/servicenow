@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+  <sys_script_include action="INSERT_OR_UPDATE">
+    <access>package_private</access>
+    <active>true</active>
+    <api_name>sn_lamancha.lamanchaSI</api_name>
+    <caller_access/>
+    <client_callable>false</client_callable>
+    <description>test:&#13;
+var si = new sn_lamancha.lamanchaSI();&#13;
+var template = si.getJSONTemplate('6628abfdff313300f662cd6bd53bf114');&#13;
+gs.info(template);</description>
+    <name>lamanchaSI</name>
+    <script><![CDATA[var lamanchaSI = Class.create();
+lamanchaSI.prototype = {
+	TABLE_NAME: 'sn_lamancha_jsontemplate',
+
+    initialize: function() {
+    },
+
+    type: 'lamanchaSI',
+	
+	readJSONSchema: function(id) {
+		//gs.info("id==========" + id);
+		var gr = new GlideRecord(this.TABLE_NAME);
+		//gr.addQuery("id", id);
+		gr.get(id);
+		return gr.getValue('template');
+	},
+	
+	readAllJSONSchema: function() {
+		var jsonArray = global.JSON.parse("[]"); //new global.JSON();
+		var gr = new GlideRecord(this.TABLE_NAME);
+		gr.addQuery("active", true);
+		gr.query();
+		while (gr.next()) {
+			var template = {};
+			template.name = gr.getValue('name');
+			template.template = gr.getValue('template');
+			jsonArray.push(template);
+		}
+		return template;
+	},
+
+	handleJSONFormRequest: function(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+		var uri = request.uri;
+        var url = request.url;
+        var queryParams = request.queryParams;
+        var customHeader = request.getHeader('X-Custom');
+		var requestBody = request.body;
+        var requestString = requestBody.dataString;
+		var bodyData = request.body.data;
+		
+		//var responseObj = global.SampleDataUtil.getSampleJSON();
+        //return responseObj;
+
+		var json = JSON.parse(bodyData);
+		gs.info(json);
+		return {'answer': true};
+	}
+};]]></script>
+    <sys_class_name>sys_script_include</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2019-06-03 17:38:38</sys_created_on>
+    <sys_id>a9022b3dff313300f662cd6bd53bf19c</sys_id>
+    <sys_mod_count>16</sys_mod_count>
+    <sys_name>lamanchaSI</sys_name>
+    <sys_package display_value="lamancha" source="sn_lamancha">59a92aed73353300f662cff8faf6a70e</sys_package>
+    <sys_policy>read</sys_policy>
+    <sys_scope display_value="lamancha">59a92aed73353300f662cff8faf6a70e</sys_scope>
+    <sys_update_name>sys_script_include_a9022b3dff313300f662cd6bd53bf19c</sys_update_name>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2019-06-03 19:02:14</sys_updated_on>
+  </sys_script_include>
+</record_update>

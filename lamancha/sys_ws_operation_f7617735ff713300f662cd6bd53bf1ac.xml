@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+  <sys_ws_operation action="INSERT_OR_UPDATE">
+    <active>true</active>
+    <consumes>application/json,application/xml,text/xml</consumes>
+    <consumes_customized>false</consumes_customized>
+    <default_operation_uri/>
+    <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+    <http_method>GET</http_method>
+    <name>readAllJSONSchema</name>
+    <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+	//  curl -v -u"admin:admin" "http://localhosta:8080/api/sn_lamancha/lamancha_config_service/readAllJSONSchema"
+
+    
+	var si = new sn_lamancha.lamanchaSI();
+	var jsonTemplateList = si.readAllJSONSchema();
+	var jsonString =  JSON.stringify(jsonTemplateList);
+	
+	response.setStatus(200);
+	response.setContentType("applicaion/json");
+	return jsonString;
+})(request, response);]]></operation_script>
+    <operation_uri>/api/sn_lamancha/lamancha_config_service/readAllJSONSchema</operation_uri>
+    <produces>application/json,application/xml,text/xml</produces>
+    <produces_customized>false</produces_customized>
+    <relative_path>/readAllJSONSchema</relative_path>
+    <request_example/>
+    <requires_acl_authorization>true</requires_acl_authorization>
+    <requires_authentication>true</requires_authentication>
+    <requires_snc_internal_role>true</requires_snc_internal_role>
+    <short_description/>
+    <sys_class_name>sys_ws_operation</sys_class_name>
+    <sys_created_by>admin</sys_created_by>
+    <sys_created_on>2019-06-03 18:41:24</sys_created_on>
+    <sys_id>f7617735ff713300f662cd6bd53bf1ac</sys_id>
+    <sys_mod_count>11</sys_mod_count>
+    <sys_name>readAllJSONSchema</sys_name>
+    <sys_package display_value="lamancha" source="sn_lamancha">59a92aed73353300f662cff8faf6a70e</sys_package>
+    <sys_policy/>
+    <sys_scope display_value="lamancha">59a92aed73353300f662cff8faf6a70e</sys_scope>
+    <sys_update_name>sys_ws_operation_f7617735ff713300f662cd6bd53bf1ac</sys_update_name>
+    <sys_updated_by>admin</sys_updated_by>
+    <sys_updated_on>2019-06-03 19:01:21</sys_updated_on>
+    <web_service_definition display_value="lamancha_config_service">0ab480b973313300f662cff8faf6a704</web_service_definition>
+    <web_service_version/>
+  </sys_ws_operation>
+</record_update>
